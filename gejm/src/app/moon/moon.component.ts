@@ -14,7 +14,12 @@ export class MoonComponent {
     audio.load();
     audio.play();
   }
-  
+  victoryRoyale(){
+    let audio = new Audio();
+    audio.src = "../../../assets/victoryRoyale.mp3";
+    audio.load();
+    audio.play();
+  }
   land(){
       gsap.to(".lunarModule",{duration:2, y:20});
   }
@@ -29,5 +34,6 @@ export class MoonComponent {
       setTimeout(this.playAudio,3000);
     gsap.set(".lunarModule",{y:-1000});
     setTimeout(this.land,1000);
+    setTimeout(this.victoryRoyale,3500);
    }
 }
