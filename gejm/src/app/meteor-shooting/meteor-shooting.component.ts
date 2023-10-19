@@ -9,8 +9,10 @@ export class MeteorShootingComponent {
   points:number=0;
   src:string="../../assets/meteor.png";
   one:string="../../assets/meteor.png";
-  two:string="../../assets/exploded.png";
+  two:string="../../assets/explode.png";
   
+
+
   playAudio(){
     let audio = new Audio();
     audio.src = "../../../assets/explosion.wav";
@@ -21,26 +23,20 @@ export class MeteorShootingComponent {
     this.points++;
     this.playAudio();
     this.src=this.two;
-
-    
-  }
-  
-    fall():void{
-      
-        gsap.set(".meteor",{y:-1000})
-        gsap.to(".meteor",{duration:4,x:window.innerWidth/2,y:1000})
-        setTimeout(() => {
-          gsap.set(".meteor",{y:-1000})
-        }, 5000);
-      
-        
-        
-      
+    if(this.points > 19) {
         
     }
+    gsap.set(".meteor",{y:-1000});
+    gsap.to(".meteor",{duration:1,x:window.innerWidth/2,y:1000})
+        
+        gsap.to(".meteor",{duration:1,x:window.innerWidth/2,y:100})
+  }
   
   ngOnInit(){
-  this.fall
+  
+
+  
+
   }
 
   }
