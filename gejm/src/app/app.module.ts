@@ -7,6 +7,7 @@ import { OuterSpaceComponent } from './outer-space/outer-space.component';
 import { BuildingComponent } from './building/building.component';
 import { EarthComponent } from './earth/earth.component';
 import { MoonComponent } from './moon/moon.component';
+import { ReturnComponent } from './return/return.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MoonComponent } from './moon/moon.component';
     OuterSpaceComponent,
     BuildingComponent,
     EarthComponent,
-    MoonComponent
+    MoonComponent,
+    ReturnComponent
   ],
   imports: [
     BrowserModule,
