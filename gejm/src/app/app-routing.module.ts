@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'outer-space', component:  OuterSpaceComponent },
   { path: 'landing', component:  MoonComponent },
   { path: 'return', component: ReturnComponent },
-  { path: '', redirectTo: '/building', pathMatch: 'full' }
+  { path: '', redirectTo: '/launch', pathMatch: 'full' }
 ];
 
 @NgModule({
