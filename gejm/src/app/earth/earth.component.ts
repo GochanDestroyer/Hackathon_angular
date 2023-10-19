@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import gsap from 'gsap';
 
 @Component({
@@ -9,16 +10,70 @@ import gsap from 'gsap';
 export class EarthComponent {
   altitude = Number(110 / 10000).toFixed(4);
   mouseMoveAltitude = 0;
-  velovity = 400;
+  velovity = 500;
+  started = false;
+  instruction = 'Wciśnij spację, aby wystartować';
+  backgroundImage = '../../assets/sky.jpg';
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router  ) {}
 
   ngOnInit() {
     gsap.set(".rocket",{y:window.innerHeight / 2, x: window.innerWidth / 2})
-    const tmp = () => {
-      this.altitude = Number(Number(this.altitude) + 0.0001).toFixed(4)
-      this.velovity = this.velovity - 1 > 0 ? this.velovity - 1 : 1;
-      setTimeout(tmp, this.velovity);
-    }
-    setTimeout(tmp, this.velovity);
+    document.addEventListener('keypress', (e) => {
+      if (e.key === ' ') {
+        this.instruction = '';
+        this.started = true;
+        
+        let tmp: Function | null = () => {
+            this.altitude = Number(Number(this.altitude) + 0.0001).toFixed(4)
+            this.velovity = this.velovity - 10 > 0 ? this.velovity - 10 : 1;
+            setTimeout(tmp!, this.velovity);
+          }
+          setTimeout(tmp, this.velovity);
+
+          let crow = document.createElement('img');
+          crow.src = '../../assets/crow.png';
+          crow.style.position = 'absolute';
+          crow.style.width = '100px';
+          crow.style.height = '100px';
+          crow.style.top = '0px';
+          crow.style.left = '0px';
+          document.body.appendChild(crow);
+
+          gsap.fromTo(
+            crow, 
+            {x: (Math.random() - 0.1)*window.innerWidth, y: 0, overwrite: 'auto'},
+            {duration: Math.random()*3 + 2, x: Math.random()*window.innerWidth + 100, y: window.innerHeight + 100, overwrite: 'auto'}
+            );
+
+          setInterval(() => {
+            gsap.fromTo(
+              crow, 
+              {x: (Math.random() - 0.1)*window.innerWidth, y: 0, overwrite: 'auto'},
+              {duration: Math.random()*3 + 2, x: Math.random()*window.innerWidth + 100, y: window.innerHeight + 100, overwrite: 'auto'}
+              );
+          }, 1000 * 5)
+          setTimeout(() => {
+            this.started = false;
+            this.instruction = 'Wkraczas na orbitę!';
+            setTimeout(() => {
+              this.instruction = '';
+              this.started = true;
+              this.backgroundImage = '../../assets/cosmos-sky.jpg';
+            }, 4*1000);
+
+            setTimeout(() => {
+              tmp = null;
+              setTimeout(() => { 
+                this.router.navigate(['/landing']);
+              }, 1000);
+            }, 30*1000);
+
+          }, 30 * 1000);
+      };
+    });
   }
 
   rocketMove(e: MouseEvent) {

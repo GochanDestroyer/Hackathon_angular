@@ -1,8 +1,15 @@
-<div class="container" (mousemove)="rocketMove($event)">
+<div class="container" (mousemove)="started === true ? rocketMove($event) : ''" [ngStyle]="{
+    'background-image': 'url('+ backgroundImage +')'
+}">
+    <!-- <img src="../../assets/crow.png" alt=""> -->
     <img src="../../assets/rocket.png" class="rocket" alt="Rakieta Saturn V">
     <div class="altitude">
         <span>0</span>
         <span *ngFor="let num of altitude.toString().replace('.', '').split(''); index as i">{{ num }}</span>
         <span class="meters">m</span>
     </div>
+</div>
+
+<div class="instruction" [ngStyle]="{'display': started ? 'none' : 'flex'}">
+    {{ instruction }}
 </div>
