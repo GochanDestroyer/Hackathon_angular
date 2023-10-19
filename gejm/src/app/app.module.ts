@@ -9,6 +9,7 @@ import { EarthComponent } from './earth/earth.component';
 import { MoonComponent } from './moon/moon.component';
 import { ReturnComponent } from './return/return.component';
 import { FunFactComponent } from './fun-fact/fun-fact.component';
+import { MeteorShootingComponent } from './meteor-shooting/meteor-shooting.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FunFactComponent } from './fun-fact/fun-fact.component';
     EarthComponent,
     MoonComponent,
     ReturnComponent,
-    FunFactComponent
+    FunFactComponent,
+    MeteorShootingComponent
   ],
   imports: [
     BrowserModule,

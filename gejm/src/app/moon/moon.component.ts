@@ -16,10 +16,10 @@ export class MoonComponent {
   }
   
   land(){
-      gsap.to(".landingCraft",{duration:2, y:0});
+      gsap.to(".lunarModule",{duration:2, y:20});
   }
   ngOnInit() {
-      alert(1);
+      
       this.playAudio();
       setTimeout(this.playAudio,500);
       setTimeout(this.playAudio,1000);
@@ -27,7 +27,7 @@ export class MoonComponent {
       setTimeout(this.playAudio,2000);
       setTimeout(this.playAudio,2500);
       setTimeout(this.playAudio,3000);
-    gsap.set(".landingCraft",{y:-1000});
+    gsap.set(".lunarModule",{y:-1000});
     setTimeout(this.land,1000);
    }
 }
