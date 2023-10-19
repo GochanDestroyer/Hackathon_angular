@@ -6,7 +6,7 @@ W drugim etapie zadaniem gracza jest unikanie meteorytów zmierzających w stron
 Gra kończy się szczęśliwym lądowaniem gracza na Księżycu.
 
 
-
+Wymagany jest pobranie Angulara.
 Aby uruchomić grę należy przejść do folderu gejm a następnie użyć komendy: ng serve
 Następnie przejść na stronę o adresie:    localhost:4200
 Aby uruchomić samą grę należy: nacisnąć przycisk spacja znajdujący się na samym dole klawiatury ( jest to najszerszy przycisk na klawiaturze).
