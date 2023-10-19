@@ -8,6 +8,7 @@ import { BuildingComponent } from './building/building.component';
 import { EarthComponent } from './earth/earth.component';
 import { MoonComponent } from './moon/moon.component';
 import { ReturnComponent } from './return/return.component';
+import { FunFactComponent } from './fun-fact/fun-fact.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReturnComponent } from './return/return.component';
     BuildingComponent,
     EarthComponent,
     MoonComponent,
-    ReturnComponent
+    ReturnComponent,
+    FunFactComponent
   ],
   imports: [
     BrowserModule,
