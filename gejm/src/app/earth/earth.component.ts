@@ -11,6 +11,7 @@ export class EarthComponent {
   altitude = Number(110 / 10000).toFixed(4);
   mouseMoveAltitude = 0;
   velovity = 500;
+  vel2 = 0.0001;
   started = false;
   instruction = 'Wciśnij spację, aby wystartować';
   backgroundImage = '../../assets/sky.jpg';
@@ -27,7 +28,7 @@ export class EarthComponent {
         this.started = true;
         
         let tmp: Function | null = () => {
-            this.altitude = Number(Number(this.altitude) + 0.0001).toFixed(4)
+            this.altitude = Number(Number(this.altitude) + this.vel2).toFixed(4)
             this.velovity = this.velovity - 10 > 0 ? this.velovity - 10 : 1;
             setTimeout(tmp!, this.velovity);
           }
@@ -58,10 +59,12 @@ export class EarthComponent {
           setTimeout(() => {
             this.started = false;
             this.instruction = 'Wkraczas na orbitę!';
+            this.vel2 = 0.01;
             setTimeout(() => {
               this.instruction = '';
               this.started = true;
               this.backgroundImage = '../../assets/cosmos-sky.jpg';
+              crow.src = '../../assets/meteor.png';
             }, 4*1000);
 
             setTimeout(() => {
