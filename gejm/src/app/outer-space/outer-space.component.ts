@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import gsap from 'gsap';
+
 
 @Component({
   selector: 'app-outer-space',
@@ -6,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./outer-space.component.scss']
 })
 export class OuterSpaceComponent {
-  
 }
